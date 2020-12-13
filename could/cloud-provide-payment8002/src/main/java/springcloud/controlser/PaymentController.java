@@ -1,11 +1,11 @@
-package com.wenbin.springcloud.controlser;
+package springcloud.controlser;
 
-import com.wenbin.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import springcloud.entities.CommonResult;
 import springcloud.entities.Payment;
+import springcloud.service.PaymentService;
 
 import javax.annotation.Resource;
 
@@ -23,9 +23,9 @@ public class PaymentController {
         int result = paymentService.create(payment);
         log.info("插入结果是" + result);
         if (result > 0) {
-            return new CommonResult(200, "success port:" + serverPort, result);
+            return new CommonResult(200, "success,prot:" + serverPort, result);
         }
-        return new CommonResult(444, "faile");
+        return new CommonResult(444, "fial");
     }
 
     @GetMapping(value = "payment/{id}")
