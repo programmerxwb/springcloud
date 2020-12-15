@@ -2,18 +2,24 @@ package springcloud.controlser;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import springcloud.entities.CommonResult;
 import springcloud.entities.Payment;
 import springcloud.service.PaymentService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j
 public class PaymentController {
     @Resource
     private PaymentService paymentService;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @Value("${server.port}")
     private String serverPort;
@@ -36,5 +42,18 @@ public class PaymentController {
             return new CommonResult(200, "success", result);
         }
         return new CommonResult(444, "faile");
+    }
+
+    @GetMapping(value = "payment/discovery")
+    public Object discovery(){
+        List<String> list = discoveryClient.getServices();
+        for(String str:list){
+             log.info("element-----"+str);
+        }
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        for(ServiceInstance serviceInstance:instances){
+            log.info(serviceInstance.getHost()+"\t"+serviceInstance.getInstanceId()+"\t"+serviceInstance.getPort());
+        }
+        return this.discoveryClient;
     }
 }

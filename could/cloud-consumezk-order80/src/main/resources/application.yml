@@ -1,0 +1,11 @@
+server:
+  port: 80
+
+
+#服务别名 --- 注册zookeeper到注册中心名称
+spring:
+  application:
+    name: cloud-consume-payment
+  cloud:
+    zookeeper:
+      connect-string: 172.16.59.131:2181
