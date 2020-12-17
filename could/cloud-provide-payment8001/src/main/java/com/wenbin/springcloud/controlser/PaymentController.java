@@ -37,4 +37,15 @@ public class PaymentController {
         }
         return new CommonResult(444, "faile");
     }
+
+    @GetMapping("payment/lb")
+    public String getPayMentPort(){
+        return serverPort;
+    }
+
+    @GetMapping("payment/feign")
+    public String paymentFeignTimeOut() throws InterruptedException {
+        Thread.sleep(3000);
+        return "success";
+    }
 }

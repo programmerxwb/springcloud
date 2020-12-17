@@ -12,9 +12,12 @@
         <module name="cloud-apai-common" />
         <module name="cloud-eureka-server7001" />
         <module name="cloud-consumezk-order80" />
+        <module name="vloud-providerconsult-payment8006" />
         <module name="cloud-provide-payment8001" />
         <module name="cloud-eureka-server7002" />
         <module name="cloud-consumer-order80" />
+        <module name="cloud-consumerconsul-order80" />
+        <module name="cloud-consumer-feign-order80" />
       </profile>
     </annotationProcessing>
   </component>

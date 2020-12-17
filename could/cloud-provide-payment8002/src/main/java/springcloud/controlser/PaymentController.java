@@ -56,4 +56,15 @@ public class PaymentController {
         }
         return this.discoveryClient;
     }
+
+    @GetMapping("payment/lb")
+    public String getPayMentPort(){
+        return serverPort;
+    }
+
+    @GetMapping("payment/feign")
+    public String paymentFeignTimeOut() throws InterruptedException {
+        Thread.sleep(3000);
+        return "success";
+    }
 }
