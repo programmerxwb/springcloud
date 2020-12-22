@@ -8,5 +8,7 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
 
 ribbon:
+  #指的是建立连接后从服务器获取资源所用的时间，超过就报错
   ReadTimeout: 5000
+  #建立连接所用的时间，适用于正常情况下，两端链接所用的时间
   ConnectTimeout: 5000

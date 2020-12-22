@@ -22,6 +22,9 @@
         <module>vloud-providerconsult-payment8006</module>
         <module>cloud-consumerconsul-order80</module>
         <module>cloud-consumer-feign-order80</module>
+        <module>cloud-provied-hystrix-payment8001</module>
+        <module>cloud-consumer-feign-hystrix-order80</module>
+        <module>cloud-consumer-hystrix-dashboard9001</module>
     </modules>
 
     <!-- 版本设置 -->
