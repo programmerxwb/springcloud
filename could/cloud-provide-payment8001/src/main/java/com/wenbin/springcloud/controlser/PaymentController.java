@@ -43,6 +43,11 @@ public class PaymentController {
         return serverPort;
     }
 
+    @GetMapping("payment/get")
+    public String getPayment(){
+        return "this is payment/get";
+    }
+
     @GetMapping("payment/feign")
     public String paymentFeignTimeOut() throws InterruptedException {
         Thread.sleep(3000);
