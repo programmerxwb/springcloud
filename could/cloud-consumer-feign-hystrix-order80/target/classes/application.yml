@@ -11,6 +11,8 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+#设置使用hystrix后，ribbon的超市时间不好用
 hystrix:
   command:
     default:
@@ -18,8 +20,6 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 5000
-
-
 
 ribbon:
   #指的是建立连接后从服务器获取资源所用的时间，超过就报错
