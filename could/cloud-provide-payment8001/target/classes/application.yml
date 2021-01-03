@@ -1,7 +1,6 @@
 server:
   port: 8001
 
-
 spring:
   application:
     name: cloud-payment-service
@@ -13,6 +12,12 @@ spring:
     url: jdbc:mysql://localhost:3306/me?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: xuwenbin123.
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        #0到1之间
+        probability: 1
 
 eureka:
   client:

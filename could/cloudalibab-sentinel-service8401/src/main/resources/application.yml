@@ -1,0 +1,43 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: cloudalibab-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        service-addr: localhost:8848
+    sentinel:
+      transport:
+        #配置Sentin dashboard地址
+        dashboard: localhost:8080
+        # 默认8719端口，假如被占用了会自动从8719端口+1进行扫描，直到找到未被占用的 端口
+        port: 8719
+      datasource:
+        ds2:
+          nacos:
+            server-addr: localhost:8848
+            data-id: cloudalibab-sentinel-service
+            group-id: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#[
+#  {
+#    "resource":"/testA",         资源名称
+#    "limitApp":"default",        来源应用
+#    "grade":1,                   阀值类型，0线程数，1QPS
+#    "count":1,                   单机阀值
+#    "strategy":0,                流控模式 0:直接，1:关联，2:链路
+#    "controlBehvior":0,          流控效果 0快速失败，1Warm Up 2排队等待
+#    "clusterMode":false          是否集群
+#  }
+#]
